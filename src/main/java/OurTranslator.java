@@ -4,7 +4,7 @@
 public class OurTranslator {
     public static void main(String[] args) {
         Translator trans = new CaesarTranslator(3);
-        Character c = trans.translate('h');
+        char c = trans.translate('z');
         System.out.println(c);
     }
 }

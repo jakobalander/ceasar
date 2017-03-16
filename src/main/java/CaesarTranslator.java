@@ -1,22 +1,13 @@
-import java.lang.reflect.Array;
-
 /**
  * Created by jakala on 2017-03-16.
  */
 public class CaesarTranslator implements Translator {
 
     int nSteps;
-    char[] alphabet;
+    String alphabet;
 
-    public Character translate(Character c) {
-        for(int i=0; i<alphabet.length; i++) {
-            System.out.println("index: " + i + ", represents: " + alphabet[i]);
-            if(c == alphabet[i]) {
-                System.out.println("found a match for " + c);
-                return alphabet[i + nSteps];
-            }
-        }
-        return null;
+    public char translate(char c) {
+        return alphabet.charAt((alphabet.indexOf(c) + nSteps) % alphabet.length());
     }
 
     CaesarTranslator(int nSteps) {
@@ -25,10 +16,7 @@ public class CaesarTranslator implements Translator {
     }
 
     void populateAlphabet() {
-        alphabet = new char[25];
-        for(int i=0; i<alphabet.length; i++) {
-            alphabet[i] = (char) ('a' + i);
-        };
+        alphabet = "abcdefghijklmnopqrstuvxyz";
     }
 
 }
